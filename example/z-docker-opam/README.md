@@ -2,19 +2,19 @@
 
 <br>
 
-This example runs a simple Web app inside a [Docker](https://www.docker.com/) container using [opam](https://opam.ocaml.org/) as the package manager.
+This example runs a simple Web app inside a [Docker](https://www.docker.com/) container using [opam](https://opam.ocaml.org/) as the package manager. The Dockerfile has a build stage based on [opam base images](https://hub.docker.com/r/ocaml/opam) and a run stage based on [alpine](https://hub.docker.com/_/alpine)
 
-Build the image from `Dockerfile`
+Build the image `hello-dream` from `Dockerfile`
 ```
-DOCKER_BUILDKIT=1 docker build . --tag "docker-opam-im"
-```
-
-create and run the container
-```
-docker run --name docker-opam -p 8080:8080 docker-opam-im:latest
+docker build . --tag hello-dream
 ```
 
-see also [**`z-docker-esy`**](../z-docker-esy#folders-and-files) for using `esy` package manager and `Docker compose`.
+create and run the container `hello-dream-container` with the image `hello-dream`
+```
+docker run --name hello-dream-container -p 8080:8080 hello-dream:latest
+```
+
+See also [**`z-docker-esy`**](../z-docker-esy) for using the `esy` package manager and `Docker compose`.
 
 <br>
 
